@@ -1,4 +1,4 @@
-pipenv install django-cors-headers
+cmd    pipenv install django-cors-headers
 
 
 INSTALLED_APPS = [

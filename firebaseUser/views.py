@@ -4,6 +4,9 @@ from .models import FirebaseUser
 from django.views.decorators.csrf import csrf_exempt
 import json
 
+# def save_user(request):
+#     return JsonResponse({"message": "User saved!"})
+
 @csrf_exempt
 def save_user(request):
     if request.method == "POST":
