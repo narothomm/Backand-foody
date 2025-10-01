@@ -144,7 +144,7 @@ def get_single_food_item(request,item_id):
 def delete_food_item(request,item_id):
     if(request.method=="DELETE"):
         try:
-            food=FoodItem.objects.get(id=item-id)
+            food=FoodItem.objects.get(id=item_id)
             food.delete()
             return JsonResponse({"message":"food item delete successfully "},status=200)
         except FoodItem .DoesNotExist:

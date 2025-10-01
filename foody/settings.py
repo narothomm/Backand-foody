@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'foodItems',
     'cart',
+    'stats',
+    'pament',
 ]
 
 MIDDLEWARE = [
@@ -58,8 +60,9 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
    "http://localhost:5173",
+   "http://127.0.0.1:5173"
 ]
-
+CSRF_TRUSTED_ORIGINS=[ "http://localhost:5173","http://127.0.0.1:5173"]
 
 
 
@@ -153,3 +156,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+#for ssl commerze
+SSLCZ_SANDBOX = True  # set False in production
+SSLCZ_STORE_ID = os.getenv("SSLCZ_STORE_ID", "joyte68b9be9bd1640")
+SSLCZ_STORE_PASS = os.getenv("SSLCZ_STORE_PASS", "joyte68b9be9bd1640@ssl")
+
+SSLCZ_INIT_URL = (
+    "https://sandbox.sslcommerz.com/gwprocess/v4/api.php"
+    if SSLCZ_SANDBOX else
+    "https://securepay.sslcommerz.com/gwprocess/v4/api.php"
+)
+SSLCZ_VALIDATION_URL = (
+    "https://sandbox.sslcommerz.com/validator/api/validationserverAPI.php"
+    if SSLCZ_SANDBOX else
+    "https://securepay.sslcommerz.com/validator/api/validationserverAPI.php"
+)
